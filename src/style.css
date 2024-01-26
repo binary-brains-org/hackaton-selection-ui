@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-    .full-view {
-        @apply w-full h-full;
-    }
+  .full-view {
+    @apply w-full h-full;
+  }
 }
