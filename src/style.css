@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer components {
-    .full-view {
-        @apply w-full h-full;
-    }
+@layer component {
+  .full-view {
+    @apply w-screen h-screen;
+  }
+
+  .center-flex {
+    @apply flex items-center justify-center;
+  }
 }
