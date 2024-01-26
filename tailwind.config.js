@@ -4,5 +4,8 @@ export default {
   theme: {
     extend: {},
   },
+  purge:[
+    "./src/pages/**/*.tsx"
+  ],
   plugins: [],
 };
