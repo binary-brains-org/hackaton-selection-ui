@@ -1,16 +1,16 @@
-import { Box, Button } from "@mui/material";
+import { Box } from "@mui/material";
 
 interface ItemData {
-  id: String;
-  firstname: String;
-  lastname: String;
+  id: string;
+  firstname: string;
+  lastname: string;
   birthdate: EpochTimeStamp;
   role: "Parent" | "Child";
   sex: "M" | "F";
   age_category: "Kid" | "Teen" | "Adult";
-  password: String;
+  password: string;
   age: number;
-  cin: String;
+  cin: string;
 }
 
 interface Props {
