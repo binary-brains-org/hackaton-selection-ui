@@ -5,10 +5,10 @@ import { Button } from "@mui/material";
 const HomeKids = () => {
   return (
     <ResponsiveDrawer>
-      <div className="flex items-center justify-between w-full">
-        <img src="/kid_teaching.svg" alt="illustration" className="w-[50%]" />
-        <div className="w-[50%]">
-          <Typography fontSize="1.2rem" fontWeight="bolder" className="text-blue-700">
+      <div className="h-[20rem] flex items-center justify-between w-full">
+        <img src="/books.png" alt="illustration" className="w-[50%]" />
+        <div className="w-[50%] text-center gap-2 flex flex-col">
+          <Typography fontSize="1.5rem" fontWeight="bolder" className="text-gray-900">
             Try to manage your wallet here
           </Typography>
           <div>
