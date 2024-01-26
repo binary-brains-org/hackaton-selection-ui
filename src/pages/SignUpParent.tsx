@@ -1,16 +1,16 @@
-import { Box } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 interface ItemData {
-  age: number;
-  id?: string;
-  firstname: string;
-  lastname: string;
-  birthdate: string;
+  id: String;
+  firstname: String;
+  lastname: String;
+  birthdate: EpochTimeStamp;
   role: "Parent" | "Child";
   sex: "M" | "F";
   age_category: "Kid" | "Teen" | "Adult";
-  password: string;
-  cin: string;
+  password: String;
+  age: number;
+  cin: String;
 }
 
 interface Props {
@@ -18,7 +18,6 @@ interface Props {
 }
 
 const SignUpParent = ({ item: { age } }: Props) => {
-
   return (
     <Box className="mx-auto max-w-[432px] bg-white rounded-md shadow-lg drop-shadow-md">
       <Box className="px-4 py-3 flex justify-between">
@@ -45,47 +44,31 @@ const SignUpParent = ({ item: { age } }: Props) => {
       </Box>
       <hr className="bg-gray-600" />
       <Box className="px-4 pt-3 pb-6 space-y-3">
-        <Box className="space-y-4 flex flex-col">
+        <Box className="space-x-3 flex">
           <input
             type="text"
             placeholder="First name"
-            name={"firstname"}
             className="flex-1 ring-1 ring-gray-400 rounded-md text-md px-2 py-2 outline-none bg-gray-100 focus:placeholder-gray-500"
           />
           <input
             type="text"
-            placeholder="Lastname"
-            name={"lastname"}
+            placeholder="Surname"
             className="flex-1 ring-1 ring-gray-400 rounded-md text-md px-2 py-2 outline-none bg-gray-100 focus:placeholder-gray-500"
           />
         </Box>
         <Box>
-          <Box className="text-gray-500 text-lg p-4">
-            Role <a href=""> (?) </a>
-          </Box>
-          <Box className="mt-1 flex space-x-3">
-            <label
-                htmlFor="child"
-                className="flex-1 flex space-x-2 justify-between items-center rounded-md px-2 py-1 border border-gray-400"
-            >
-              <span>Kid</span>
-              <input type="radio" id="kid" name="role" />
-            </label>
-            <label
-                htmlFor="Kid"
-                className="flex-1 flex space-x-2 justify-between items-center rounded-md px-2 py-1 border border-gray-400"
-            >
-              <span>Teen</span>
-              <input type="radio" id="teen" name="role" />
-            </label>
-            <label
-                htmlFor="Adult"
-                className="flex-1 flex space-x-2 justify-between items-center rounded-md px-2 py-1 border border-gray-400"
-            >
-              <span>Adult</span>
-              <input type="radio" id="adult" name="role" />
-            </label>
-          </Box>
+          <input
+            type="text"
+            placeholder="Mobile number or email address"
+            className="w-full ring-1 ring-gray-400 rounded-md text-md px-2 py-2 outline-none bg-gray-100 focus:placeholder-gray-500"
+          />
+        </Box>
+        <Box>
+          <input
+            type="password"
+            placeholder="New password"
+            className="w-full ring-1 ring-gray-400 rounded-md text-md px-2 py-2 outline-none bg-gray-100 focus:placeholder-gray-500"
+          />
         </Box>
         <Box>
           <Box className="text-gray-500 text-sm">
@@ -157,13 +140,6 @@ const SignUpParent = ({ item: { age } }: Props) => {
           </Box>
         </Box>
         <Box>
-          <input
-              type="password"
-              placeholder="New password"
-              className="w-full ring-1 ring-gray-400 rounded-md text-md px-2 py-2 outline-none bg-gray-100 focus:placeholder-gray-500"
-          />
-        </Box>
-        <Box>
           <Box className="text-gray-500 text-lg p-4">
             Gender <a href=""> (?) </a>
           </Box>
@@ -190,13 +166,6 @@ const SignUpParent = ({ item: { age } }: Props) => {
               <input type="radio" id="other" name="gender" />
             </label>
           </Box>
-        </Box>
-        <Box>
-          <input
-              type="text"
-              placeholder="CIN"
-              className="w-full ring-1 ring-gray-400 rounded-md text-md px-2 py-2 outline-none bg-gray-100 focus:placeholder-gray-500"
-          />
         </Box>
         <Box>
           <p className="text-gray-600 ">
@@ -248,3 +217,4 @@ const SignUpParent = ({ item: { age } }: Props) => {
 
 export { type ItemData };
 export default SignUpParent;
+
