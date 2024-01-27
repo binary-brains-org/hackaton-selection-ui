@@ -5,7 +5,7 @@ const HomeParent = () => {
     return (
         <ResponsiveDrawer>
             <div className="flex justify-between w-full">
-                <img alt="img" src="/PARENT1.png" className="w-[35%]" />
+                <img src="/PARENT1.png" className="w-[35%]" />
                 <div className="flex font-bold w-full">
                     <div className="w-full">
                         <Typography fontSize="1.2rem" fontWeight="bolder" className="text-blue-700">
@@ -14,7 +14,7 @@ const HomeParent = () => {
                         <div className="flex flex-row rounded-lg shadow-lg w-full">
                             <div className="flex flex-row w-full">
                                 <div className="flex justify-center">
-                                    <img className="w-full h-auto object-cover" src="/public/PARENT2.png" alt="Remy Sharp"/>
+                                    <img className="w-60 h-auto object-cover" src="/public/PARENT2.png" alt="Remy Sharp"/>
                                 </div>
                                 <div className="flex flex-col">
                                     <p className="flex">Name</p>

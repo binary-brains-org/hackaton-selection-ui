@@ -7,7 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { PropsWithChildren } from "react";
+import {PropsWithChildren} from "react";
 import HeaderKids from "./HeaderParent.tsx";
 import { IoWallet } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -49,8 +49,9 @@ export default function ResponsiveDrawer({ children }: PropsWithChildren) {
                 <List>
                     <CListItem text="Investment" icon={<MdOutlineAttachMoney />} />
                 </List>
+
                 <List>
-                    <CListItem text="See my kids" icon={<GiEyeTarget />} />
+                    <Link to ="/getWallet"><CListItem text="See my kids" icon={<GiEyeTarget />}/></Link>
                 </List>
             </div>
 
