@@ -15,9 +15,18 @@ export function UserInformation() : React.ReactElement{
                 sx={{ width: 180, height: 180}}
             />
             <div className="h-full w-full grid items-center p-5">
-                <div className="w-[13em] flex-wrap">
-                    <p className="text-[1.2em]">
+                <div className="flex-wrap">
+                    <p className="text-[1.2em] py-2 bold text-gray-800">
                         Robert Niaina Franco
+                    </p>
+                    <p className="text-[1em] text-gray-800">
+                        birthdate: 2024-01-27
+                    </p>
+                    <p className="text-[1em] text-gray-800">
+                        Role: Child
+                    </p>
+                    <p className="text-[1em] text-gray-800">
+                        Cin: 909827450982734089727
                     </p>
                 </div>
             </div>

@@ -16,7 +16,9 @@ const App = () => {
     <ThemeProvider theme={theme}>
       <Router>
         <Routes>
-          <Route Component={Home} path="/" />
+          <Route path="/">
+            Redirec
+          </Route>
           <Route Component={Home} path="/home/kid" />
           <Route Component={Home} path="/home/parent" />
 

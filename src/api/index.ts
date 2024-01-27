@@ -1,8 +1,21 @@
 import axios from "axios";
 
 const api = new axios.Axios({
-  baseURL: "",
+  baseURL: import.meta.env.BASE_URL
 });
+
+interface User{
+    firstname: string,
+    lastname: string,
+    birthdate: string,
+    sex: "M" | "F",
+    image: null,
+    cin: null,
+    role: "CHILD" | "PARENTS",
+    ageCategory: "KID" | "ADULT" | "TEEN",
+    age: number,
+    password: string
+}
 
 const createUser = async (data: User) => {
   const res = await api.put("/createUser", data);
