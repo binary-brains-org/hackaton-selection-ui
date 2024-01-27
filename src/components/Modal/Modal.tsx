@@ -17,17 +17,16 @@ const style = {
 };
 
 export default function MyModal({children, isOpen, setOpen} : {children:React.ReactElement, isOpen:boolean, setOpen:Function}) {
-  const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         open={isOpen}
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        className='flex justify-center item-center grid'
       >
         {
             children
