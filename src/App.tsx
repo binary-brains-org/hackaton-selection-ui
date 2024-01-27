@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home.tsx";
 import HomeParent from "./pages/Home/HomeParent";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp/SignUp.tsx";
 
 const theme = createTheme({
   palette: {
@@ -27,7 +28,7 @@ const App = () => {
           <Route Component={null} path="/view/parent/:user_id" />
           <Route Component={null} path="/view/kid/:user_id" />
 
-          <Route Component={null} path="/signup" />
+          <Route Component={SignUp} path="/signup" />
           <Route Component={Login} path="/login" />
         </Routes>
       </Router>

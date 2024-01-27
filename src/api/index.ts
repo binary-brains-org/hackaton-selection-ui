@@ -21,7 +21,7 @@ interface User{
 }
 
 const createUser = async (data: CreateUser): Promise<User> => {
-  return (await api.put("/createUser", data)).data;
+  return (await api.put("/createUser", JSON.stringify(data))).data;
 };
 
 const loginUser = async (data: LoginUser): Promise<Credentials> => {

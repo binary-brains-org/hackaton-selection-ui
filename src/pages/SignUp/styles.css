@@ -1,0 +1,8 @@
+.for-each-select select{
+    margin-right: 20px;
+    margin-left: 10px;
+}
+
+.must-absolute{
+    position: absolute !important;
+}
