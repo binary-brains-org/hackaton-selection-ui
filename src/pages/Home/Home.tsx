@@ -1,25 +1,28 @@
-import Loading from "../../components/Loading/Loading.tsx";
 import { useEffect } from "react";
-import { getUser } from "../../api";
-import DialogError from "../../components/DialogError.tsx";
 import { useNavigate } from "react-router-dom";
+import Loading from "../../components/Loading/Loading.tsx";
+import { getUser } from "../../api";
+import local from "../../core/local.ts";
 
 const Home = () => {
   const nav = useNavigate();
 
-  const login = () => {
-    getUser("")
-      .then((v) => {
-        if (v === "KID") {
-          nav("/home/kid/:...");
+  useEffect(() => {
+    const d: string = (local.getUser() as Credential).id;
+    getUser(d)
+      .then(v => {
+        if (v?.role?.toLowerCase() === "child") {
+          nav("/home/kid");
+        }else if(v?.role?.toLowerCase() === "parent") {
+          nav("/home/parent");
         }else {
-          nav("/home/parent")
+          nav("/login");
         }
       })
-      .catch(DialogError);
-  };
-
-  useEffect(login, []);
+      .catch(() => {
+        nav("/signup");
+      })
+  }, []);
   return <Loading />;
 };
 
