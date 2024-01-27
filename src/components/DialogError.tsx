@@ -1,4 +1,3 @@
-import { createPortal } from "react-dom";
 import { Snackbar } from "@mui/material";
 
 const RenderError = ({ message }: { message: string }) => {
