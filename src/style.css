@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+::root{
+  --color-egg : #F6F1E9;
+  --color-yellow : #FFD93D;
+  --color-orange : #FF8400;
+  --color-maron : #4F200D;
+}
+
 @layer component {
   .full-view {
     @apply w-screen h-screen;
