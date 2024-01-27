@@ -79,7 +79,7 @@ export default function LoginPage(): React.ReactElement {
                   onClick={handleClick}
                   className="mt-5 tracking-wide font-semibold bg-green-400 text-white-500 w-full py-4 rounded-lg hover:bg-green-700 transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none">
                   <span className="ml-">
-                    Sign up
+                    Sign in
                   </span>
                 </button>
                 <p className="mt-6 text-xs text-gray-600 text-center">
