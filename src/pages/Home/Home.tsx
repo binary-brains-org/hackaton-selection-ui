@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import HomeParent from "./HomeParent/index.tsx";
 
 
+
 const Home = () => {
   const nav = useNavigate();
   const login = () => {

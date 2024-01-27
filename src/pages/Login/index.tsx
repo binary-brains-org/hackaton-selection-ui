@@ -10,19 +10,31 @@ import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
+import { LoginUser, loginUser } from '../../api';
+import local from '../../core/local';
+import DialogError from '../../components/DialogError';
 
 const Login = () => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
-
+  const [error,setError] = React.useState(null);
+  const [firstname, setFirstName] = React.useState("")
+  const [lastname, setLastName] = React.useState("")
+  const [password, setPassword] = React.useState("")
+  
+  const handleClick = () => {
+    let toReturn : LoginUser = {
+      firstname:firstname,
+      lastname:lastname,
+      password:password
+    }
+    loginUser(toReturn).then((value)=>{
+      console.log(value)
+    }).catch((e)=>{
+      throw e
+    })
+  }
   return (
     <Grid container component="main" sx={{ height: '100vh' }}>
+      {error}
       <CssBaseline />
       <Grid
         item
@@ -54,15 +66,27 @@ const Login = () => {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+          <Box component="form" noValidate sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
               fullWidth
-              id="email"
+              id="Firstname"
+              label="Firstname"
+              name="Firstname"
+              autoComplete="Firstname"
+              autoFocus
+              onChange={(e)=>{setFirstName(e.target.value)}}
+            />
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              onChange={(e)=>{setLastName(e.target.value)}}
+              id="Lastname"
               label="Email Address"
-              name="email"
-              autoComplete="email"
+              name="Lastname"
+              autoComplete="Lastname"
               autoFocus
             />
             <TextField
@@ -70,6 +94,7 @@ const Login = () => {
               required
               fullWidth
               name="password"
+              onChange={(e)=>{setPassword(e.target.value)}}
               label="Password"
               type="password"
               id="password"
@@ -80,10 +105,10 @@ const Login = () => {
               label="Remember me"
             />
             <Button
-              type="submit"
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
+              onClick={handleClick}
             >
               Sign In
             </Button>

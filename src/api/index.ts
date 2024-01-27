@@ -1,7 +1,10 @@
 import axios from "axios";
 
 const api = new axios.Axios({
-  baseURL: import.meta.env.BASE_URL
+  baseURL: "https://7801-41-204-99-7.ngrok-free.app",
+  headers:{
+    "Content-Type":"application/json"
+  }
 });
 
 interface User{
@@ -22,7 +25,7 @@ const createUser = async (data: CreateUser): Promise<User> => {
 };
 
 const loginUser = async (data: LoginUser): Promise<Credentials> => {
-  return (await api.post("/loginUser", data)).data;
+  return await api.post("/loginUser", JSON.stringify(data));
 };
 
 const getUser = async (id: string): Promise<User> => {
@@ -54,8 +57,9 @@ const buy = async (data: Investment): Promise<Investment> => {
 };
 
 interface LoginUser {
-  password: string;
-  username: string;
+  password: string | null;
+  firstname: string | null;
+  lastname: string | null;
 }
 
 interface Credentials {
