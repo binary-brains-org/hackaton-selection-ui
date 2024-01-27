@@ -1,18 +1,22 @@
-import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
-import LoginPage from "./pages/Login/Login";
-import SignUp from "./pages/SignUp/SignUp";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home.tsx";
 
-function App() {
- 
+const App = () => {
   return (
     <Router>
       <Routes>
-        <Route element={<>hello world</>} path="/test"/>
-        <Route Component={LoginPage} path="/signIn"/>
-        <Route path="/signUp" Component={SignUp} />
+        <Route Component={Home} path="/" />
+        <Route Component={Home} path="/home/kid" />
+        <Route Component={Home} path="/home/parent" />
+
+        <Route Component={null} path="/view/parent/:user_id" />
+        <Route Component={null} path="/view/kid/:user_id" />
+
+        <Route Component={null} path="/signup" />
+        <Route Component={null} path="/login" />
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;

@@ -7,6 +7,10 @@
     @apply w-screen h-screen;
   }
 
+  .flex-all-center {
+    @apply flex items-center justify-center;
+  }
+
   .center-flex {
     @apply flex items-center justify-center;
   }
