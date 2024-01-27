@@ -13,7 +13,7 @@ const HeaderKids = () => {
       </div>
 
       <Link
-        to="/"
+        to="/Login"
         className="w-[2.5rem] h-[2.5rem] bg-gray-500 rounded-full center-flex font-bold"
       >
         A
