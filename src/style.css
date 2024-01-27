@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-::root{
-  --color-egg : #F6F1E9;
-  --color-yellow : #FFD93D;
-  --color-orange : #FF8400;
-  --color-maron : #4F200D;
-  --color-grey : #65656567; 
+:root {
+  --color-egg: #f6f1e9;
+  --color-yellow: #ffd93d;
+  --color-orange: #ff8400;
+  --color-maron: #4f200d;
+  --color-grey: #65656567;
 }
 
 @layer component {

@@ -1,10 +1,6 @@
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import {
-  Link,
-  matchPath,
-  useLocation,
-} from 'react-router-dom';
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import { Link, matchPath, useLocation } from "react-router-dom";
 
 function useRouteMatch(patterns: readonly string[]) {
   const { pathname } = useLocation();
@@ -21,11 +17,16 @@ function useRouteMatch(patterns: readonly string[]) {
 }
 
 function MyTabs() {
-  const routeMatch = useRouteMatch(['/home/parent', '/drafts', '/trash']);
+  const routeMatch = useRouteMatch(["/home/parent", "/drafts", "/trash"]);
   const currentTab = routeMatch?.pattern?.path;
   return (
     <Tabs value={currentTab}>
-      <Tab label="My children" value="/home/parent" to="/home/parent" component={Link} />
+      <Tab
+        label="My children"
+        value="/home/parent"
+        to="/home/parent"
+        component={Link}
+      />
       <Tab label="Deposite" value="/drafts" to="/drafts" component={Link} />
       <Tab label="Transfer" value="/trash" to="/trash" component={Link} />
     </Tabs>
@@ -33,8 +34,7 @@ function MyTabs() {
 }
 
 const Nav = () => {
-  return <MyTabs />
-}
-
+  return <MyTabs />;
+};
 
 export default Nav;

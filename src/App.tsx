@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home.tsx";
 import HomeParent from "./pages/Home/HomeParent";
 import { createTheme, ThemeProvider } from "@mui/material";
 import Login from "./pages/Login";
+import DialogError from "./components/DialogError.tsx";
 
 const theme = createTheme({
   palette: {

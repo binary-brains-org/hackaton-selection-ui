@@ -14,7 +14,6 @@ import { LoginUser, loginUser } from "../../api";
 import { useState } from "react";
 import DialogError from "../../components/DialogError.tsx";
 import { useNavigate } from "react-router-dom";
-import local from "../../core/local.ts";
 
 const Login = () => {
   const {
@@ -63,7 +62,7 @@ const Login = () => {
             onSubmit={handleSubmit(v => {
               loginUser(v)
                 .then((d) => {
-                  local.setUser(d);
+                  local.setUser(d)
                   nav("/");
                 })
                 .catch(setError);

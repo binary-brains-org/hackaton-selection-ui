@@ -10,7 +10,7 @@ const AppLogo = () => {
       <FaGoogleWallet className="text-2xl" />
       <span className="text-xl">VisualPayKids</span>
     </Link>
-  )
-}
+  );
+};
 
 export default AppLogo;
