@@ -17,99 +17,102 @@ interface User{
     password: string
 }
 
-const createUser = async (data: User) => {
-  const res = await api.put("/createUser", data);
-  switch (res.status) {
-    case 200:
-      return res.data;
-
-    case 400:
-      throw new Error(badRequest.message);
-
-    case 404:
-      return notFound;
-
-    case 500:
-      return serverError;
-  }
+const createUser = async (data: CreateUser): Promise<User> => {
+  return (await api.put("/createUser", data)).data;
 };
 
-interface UserLogin {
-  lastname: string;
-  firstname: string;
+const loginUser = async (data: LoginUser): Promise<Credentials> => {
+  return (await api.post("/loginUser", data)).data;
+};
+
+const getUser = async (id: string): Promise<User> => {
+  return (await api.get(`/user/${encodeURIComponent(id)}`)).data;
+};
+
+const getChildOfParents = async (id: string): Promise<User[]> => {
+  return (await api.get(`/user/${encodeURIComponent(id)}/child`)).data;
+};
+
+const storeMoney = async (data: Investment): Promise<Investment> => {
+  return (await api.post("/storeMoney", data)).data;
+};
+
+const transferMoney = async (
+  user_id: string,
+  data: Investment,
+): Promise<Investment> => {
+  return (await api.post(`/transferMoney/${encodeURIComponent(user_id)}`, data))
+    .data;
+};
+
+const getWallet = async (user_id: string): Promise<Wallet> => {
+  return (await api.get(`/getWallet/${encodeURIComponent(user_id)}`)).data;
+};
+
+const buy = async (data: Investment): Promise<Investment> => {
+  return (await axios.post("/buy", data)).data;
+};
+
+interface LoginUser {
   password: string;
+  username: string;
 }
 
-interface LoggedUser {
+interface Credentials {
   id: string;
   token: string;
 }
 
-const loginUser = async (data: UserLogin) => {
-  const res = await api.post("/loginUser", data);
-  switch (res.status) {
-    case 200:
-      return res.data as LoggedUser;
+interface Investment {
+  id: string;
+  name: string;
+  comment: string;
+  status: "ENABLED" | "DISABLED";
+  price: number;
+  image: string;
+  category: InvestmentCategory[];
+}
 
-    case 400:
-      return badRequest;
+interface InvestmentCategory {
+  id: string;
+  label: string;
+}
 
-    case 404:
-      return notFound;
+interface CreateUser {
+  firstname: string;
+  lastname: string;
+  birthdate: string;
+  sex: string;
+  image: string;
+  cin: string;
+  role: string;
+  age_category: string;
+  age: number;
+  password: string;
+}
 
-    case 500:
-      return serverError;
-  }
+interface Wallet {
+  id: string;
+  user_id: User;
+  e_money: number;
+  limit: number;
+}
+
+export {
+  createUser,
+  loginUser,
+  getUser,
+  getChildOfParents,
+  storeMoney,
+  transferMoney,
+  getWallet,
+  buy,
+  type User,
+  type CreateUser,
+  type LoginUser,
+  type Wallet,
+  type InvestmentCategory,
+  type Investment,
+  type Credentials,
 };
-
-const getUser = async (id: string) => {
-  const res = await api.get(`/user/${encodeURIComponent(id)}`);
-  switch (res.status) {
-    case 200:
-      return res.data as User;
-
-    case 400:
-      return badRequest;
-
-    case 404:
-      return notFound;
-
-    case 500:
-      return serverError;
-  }
-};
-
-const getChildOfParents = async (id: string) => {
-  const res = await api.get(`/user/${encodeURIComponent(id)}/child`);
-  switch (res.status) {
-    case 200:
-      return res.data as User[];
-
-    case 400:
-      return badRequest;
-
-    case 404:
-      return notFound;
-
-    case 500:
-      return serverError;
-  }
-};
-
-const badRequest = {
-  error: "bad request",
-  message: "cannot create or update your account",
-};
-
-const notFound = {
-  error: "not found",
-  message: "ressource not found for updates",
-};
-
-const serverError = {
-  error: "server error",
-  message: "",
-};
-
-export { createUser, loginUser, getUser, getChildOfParents };
 export default api;
