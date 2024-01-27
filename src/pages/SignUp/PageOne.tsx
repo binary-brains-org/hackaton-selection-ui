@@ -38,8 +38,8 @@ export function PageOne() : React.ReactElement{
         <Input type="date" onChange={(e)=>{setBirthdate(e.target.value)}}/>
         <div className="py-2 flex flex-col">
             <label htmlFor="" className="p-3">Sex</label>
-            <select defaultValue={"H"} onChange={(e)=>{setSex(e.target.value)}} className="text-md flex-1 px-2 py-1.5 ring-1 ring-gray-400 rounded-md outline-none w-1/6">
-                <option value={"H"}>Homme</option>
+            <select defaultValue={"M"} onChange={(e)=>{setSex(e.target.value)}} className="text-md flex-1 px-2 py-1.5 ring-1 ring-gray-400 rounded-md outline-none w-1/6">
+                <option value={"M"}>Homme</option>
                 <option value={"F"}>Femme</option>
             </select>
         </div>
@@ -48,14 +48,14 @@ export function PageOne() : React.ReactElement{
         <InputWithLabel handleClick={setCin} label="CIN" placeHolder="you cin Number"/>
         <div className="py-2 flex flex-col">
             <label htmlFor="" className="p-3">Role</label>
-            <select onChange={(e)=>{setRole(e.target.value)}} className="text-md flex-1 px-2 py-1.5 ring-1 ring-gray-400 rounded-md outline-none w-1/6">
-                <option value={"CHILD"}>kid</option>
-                <option value={"PARENT"}>Teen</option>
+            <select defaultValue="CHILD" onChange={(e)=>{setRole(e.target.value)}} className="text-md flex-1 px-2 py-1.5 ring-1 ring-gray-400 rounded-md outline-none w-1/6">
+                <option value={"CHILD"}>CHild</option>
+                <option value={"PARENT"}>parent</option>
             </select>
         </div>
         <div className="py-2 flex flex-col">
             <label htmlFor="" className="p-3">age category</label>
-            <select onChange={(e)=>{setAgeCategory(e.target.value)}} className="text-md flex-1 px-2 py-1.5 ring-1 ring-gray-400 rounded-md outline-none w-1/6">
+            <select defaultValue={"KIDS"} onChange={(e)=>{setAgeCategory(e.target.value)}} className="text-md flex-1 px-2 py-1.5 ring-1 ring-gray-400 rounded-md outline-none w-1/6">
                 <option value={"KIDS"}>kid</option>
                 <option value={"TEEN"}>Teen</option>
                 <option value={"ADULT"}>Adult</option>
