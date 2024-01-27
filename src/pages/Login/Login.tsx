@@ -13,9 +13,9 @@ export default function LoginPage(): React.ReactElement {
       password:password,
       lastName:lastName
     }).then((res:unknown) => {
-
+        return res
     }).catch((err:unknown) => {
-
+      console.log(err)
     })
   }
 
