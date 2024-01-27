@@ -5,20 +5,6 @@ import { PageTwo } from "./PageTwo";
 import { PageThree } from "./PageThree";
 import { Button } from "@mui/material";
 
-interface ItemData {
-  id: string;
-  firstname: string;
-  lastname: string;
-  birthdate: EpochTimeStamp;
-  role: "Parent" | "Child";
-  sex: "M" | "F";
-  age_category: "Kid" | "Teen" | "Adult";
-  password: string;
-  age: number;
-  cin: string;
-}
-
-
 export default function SignUp() : React.ReactElement{
   const [active,setActive] = useState(0);
   return(
