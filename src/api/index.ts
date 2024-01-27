@@ -4,19 +4,6 @@ const api = new axios.Axios({
   baseURL: "",
 });
 
-interface User {
-  firstname: string;
-  lastname: string;
-  birthdate: string;
-  sex: "M" | "F";
-  image: string;
-  cin: string;
-  role: "CHILD" | "TEEN" | "ADULT";
-  age_category: string;
-  age: number;
-  password: string;
-}
-
 const createUser = async (data: User) => {
   const res = await api.put("/createUser", data);
 
@@ -43,6 +30,19 @@ interface UserLogin {
   lastname: string;
   firstname: string;
   password: string;
+}
+
+interface User{
+  firstname: string;
+  lastname: string;
+  birthdate: string;
+  sex: string;
+  image: string;
+  cin:number;
+  role: string;
+  age_category: string;
+  age: number;
+  id: string
 }
 
 interface LoggedUser {
