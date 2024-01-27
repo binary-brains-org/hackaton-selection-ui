@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "./styles.css";
+import { loginUser } from "../../api";
 
 export default function LoginPage(): React.ReactElement {
   const [firstName, setFirstName] = useState("");
@@ -8,13 +8,9 @@ export default function LoginPage(): React.ReactElement {
   const [lastName, setLastName] = useState("");
   
   const handleClick = () => {
-    axios.post(import.meta.env.BASE_URL,{
-      firstName:firstName,
-      password:password,
-      lastName:lastName
-    }).then((res:unknown) => {
+    loginUser({firstname:firstName,lastname:lastName,password:password}).then((res)=>{
 
-    }).catch((err:unknown) => {
+    }).catch(()=>{
 
     })
   }
